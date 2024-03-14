@@ -313,7 +313,7 @@ fi
 
 echo "-- polishing and copying output files"
 
-python ../_resources/python/fix_output_files.py --tax taxonomy.vsearch --asv asv.tab-csv
+python ../../../../code/metabarcoding_pipeline/_resources/python/fix_output_files.py --tax taxonomy.vsearch --asv asv.tab-csv
 cp taxonomy.vsearch ../$project.$nowformat/taxonomy.vsearch
 cp asv.tab-csv ../$project.$nowformat/asv_table.merge.txt
 
