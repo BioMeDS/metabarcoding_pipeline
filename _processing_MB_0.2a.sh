@@ -335,27 +335,27 @@ cp asv.tab-csv ../$project.$nowformat/asv_table.merge.txt
 
 #cp config.txt  ../$project.$nowformat/
 
-echo "-- create R script"
-
-# CREATE R SCRIPT
-cat ../_resources/R_template_header.R > ../$project.$nowformat/R_$project.v0.R
-echo "# Created: $now" >>../$project.$nowformat/R_$project.v0.R
-echo "# Project: $project" >>../$project.$nowformat/R_$project.v0.R
-echo "# Marker: $marker" >>../$project.$nowformat/R_$project.v0.R
-echo "# For: $datasupplier" >>../$project.$nowformat/R_$project.v0.R
-
-cat ../_resources/R_template_libraries.R >> ../$project.$nowformat/R_$project.v0.R
-echo "\n\n# Setting working directory (check path)" >>../$project.$nowformat/R_$project.v0.R
-echo "setwd('$(pwd)/../$project.$nowformat')" >>../$project.$nowformat/R_$project.v0.R
-
-echo "\n\n# Custom functions inclusion" >>../$project.$nowformat/R_$project.v0.R
-echo "marker=\"$marker\"" >>../$project.$nowformat/R_$project.v0.R
-echo "source('$(pwd)/../_resources/metabarcoding_tools_0-1a.R')" >>../$project.$nowformat/R_$project.v0.R
-
-cat ../_resources/R_template_ITS2.R >> ../$project.$nowformat/R_$project.v0.R
-
-cp ../_resources/metabarcoding_tools_0-1a.R ../$project.$nowformat/
-mkdir -p ../$project.$nowformat/plots
+#echo "-- create R script"
+#
+## CREATE R SCRIPT
+#cat ../_resources/R_template_header.R > ../$project.$nowformat/R_$project.v0.R
+#echo "# Created: $now" >>../$project.$nowformat/R_$project.v0.R
+#echo "# Project: $project" >>../$project.$nowformat/R_$project.v0.R
+#echo "# Marker: $marker" >>../$project.$nowformat/R_$project.v0.R
+#echo "# For: $datasupplier" >>../$project.$nowformat/R_$project.v0.R
+#
+#cat ../_resources/R_template_libraries.R >> ../$project.$nowformat/R_$project.v0.R
+#echo "\n\n# Setting working directory (check path)" >>../$project.$nowformat/R_$project.v0.R
+#echo "setwd('$(pwd)/../$project.$nowformat')" >>../$project.$nowformat/R_$project.v0.R
+#
+#echo "\n\n# Custom functions inclusion" >>../$project.$nowformat/R_$project.v0.R
+#echo "marker=\"$marker\"" >>../$project.$nowformat/R_$project.v0.R
+#echo "source('$(pwd)/../_resources/metabarcoding_tools_0-1a.R')" >>../$project.$nowformat/R_$project.v0.R
+#
+#cat ../_resources/R_template_ITS2.R >> ../$project.$nowformat/R_$project.v0.R
+#
+#cp ../_resources/metabarcoding_tools_0-1a.R ../$project.$nowformat/
+#mkdir -p ../$project.$nowformat/plots
 
 $vsearch -v > logs/software.version
 cd ..
