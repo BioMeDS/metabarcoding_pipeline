@@ -227,8 +227,8 @@ fi
 
 if [ "$marker" = "16S" ]
   then
-    echo ",kingdom,phylum,order,family,genus" > taxonomy.vsearch
-    echo ",kingdom,phylum,order,family,genus" > taxonomy.blast
+    echo ",family,genus,species" > taxonomy.vsearch
+    echo ",family,genus,species" > taxonomy.blast
 fi
 
 countdb=0
@@ -265,6 +265,13 @@ $vsearch --sintax zotus.direct.$countdb.uc.nohit.fasta \
   --threads $threads 2>  logs/_sintax.log
 
 cut -f1,4 zotus.uc.merge.nohit.sintax | sed -E -e "s/\_[0-9]+//g" -e "s/,s:.*$//"  >> taxonomy.vsearch
+
+if [ "$marker" = "16S" ]
+  then
+    # some taxonomies start from domain but most only have family, genus, species (remove higher ranks to make it consistent)
+    sed -i.bak -e "s/d:.*,f:/f:/g" -e "s/d:.*//" taxonomy.vsearch
+fi
+
 
 # v3 idea [TODO]: phylo + spc estimation on sintax results
 
