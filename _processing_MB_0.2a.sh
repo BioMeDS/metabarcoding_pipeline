@@ -9,6 +9,8 @@
 # https://doi.org/10.1098/rstb.2021.0171
 ###################################################################
 
+set -e
+
 if [ -z "$1" ]; then
   echo 'No directory supplied' >&2
   exit 1
