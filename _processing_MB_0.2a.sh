@@ -46,10 +46,10 @@ if [ $skip_preprocessing -ne 1 ]
 
   # looping through all files for merging
   echo "-- starting merging and filter "
-  for f in *_R1_*.fastq; do
+  for f in *_R1*.fastq; do
 
-    r=$(sed -e "s/_R1_/_R2_/" <<< "$f")
-    s=$(echo $f | sed "s/_L001.*//g")
+    r=$(sed -e "s/_R1/_R2/" <<< "$f")
+    s=$(echo $f | cut -d_ -f1)
   	total=$(grep "^@M" $f | wc -l)
 
     echo " "
