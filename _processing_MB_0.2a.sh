@@ -205,7 +205,13 @@ threshold=$tax_threshold
 echo "Classification threshold: $threshold"
 
 # switch here for marker
-rm taxonomy.vsearch
+rm -f taxonomy.vsearch
+
+if [ "$marker" = "ITS" ]
+  then
+    echo ",domain,phylum,order,family,genus,species" > taxonomy.vsearch
+    echo ",domain,phylum,order,family,genus,species" > taxonomy.blast
+fi
 
 if [ "$marker" = "ITS2" ]
   then
