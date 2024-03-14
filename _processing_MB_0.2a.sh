@@ -42,6 +42,7 @@ if [ $skip_preprocessing -ne 1 ]
   echo "-- decompressing raw files"
   #extracting files
   find . -name '*.gz' -print0 | xargs -0 -I {} -P $threads gunzip {}
+  find . -name '*.bz2' -print0 | xargs -0 -I {} -P $threads bunzip2 {}
 
   # looping through all files for merging
   echo "-- starting merging and filter "
