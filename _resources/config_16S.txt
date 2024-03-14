@@ -1,0 +1,43 @@
+# Data information
+datasupplier="Michaela Herz (UKW)"
+marker="16S"
+level="species"
+dataprocessor="Markus Ankenbrand (JMU)"
+
+# Reference Databases (direct), in priority order
+refDBs[1]="../../../../data/references/rdp_16s_v18.fa.gz"
+refDBs[2]="../../../../data/references/ltp_16s_v123.fa.gz"
+
+# Reference Database (hierarchical) for incomplete taxonomies as deep as possible
+hieDBs="../../../../data/references/rdp_16s_v18.fa.gz"
+
+# Script parameters (0 = no, 1 = yes)
+threads=7              # how many cores to use
+use_fw_only=0           # in case of bad quality reverse reads, skip merging and proceed with fw only but quality truncated
+skip_preprocessing=0    # to continue after already done preprocessing, necessary files need to be present
+classificationOnly=0    # only reclassification, necessary files need to be present
+compressionCleanup=0   # compress large files at the end, as well as log, raw and tmp folders
+blastalternateclass=0   # have blast done with the same databases as an alternative classification method.
+                        # Beware, particularly the final webblast can take a long time and requires a stable internet connection
+
+# Processing parameters (default ITS2)
+merge_minovlen=20
+merge_maxdiffs=10
+fastq_minlen=200
+fastq_maxlen=550
+fastq_maxns=0
+fastq_maxee=1
+fastq_truncee=1.5
+stripleft=0            # in case of adapters
+stripright=0         # in case of adapters
+unoisealpha=2         # default 2
+
+# classification
+tax_threshold=97 # perc identity threshold for classification
+sintax_cutoff=0.9
+
+# Paths to binaries
+seqfilter=SeqFilter
+pythonscripts=../../../../code/usearch_python_scripts
+vsearch=vsearch
+
